@@ -4,19 +4,28 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsI
 const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 export async function getDogs() {
-    // from the dogs table, select all items
 
-    // and return the response (checking for errors)
-    return checkError(response);    
+  const response = await client
+    .from('dogs')
+    .select('*');
+  // from the dogs table, select all items
+
+  // and return the response (checking for errors)
+  return checkError(response);
 }
 
 export async function getDog(id) {
-    // from the dogs table, select a single dog who has the matching id
-
-    // and return the response (checking for errors)
-    return checkError(response);    
+  // from the dogs table, select a single dog who has the matching id
+  const response = await client
+    .from('dogs')
+    .select('*')
+    .match({ id: id })
+    .single();
+  // and return the response (checking for errors)
+  return checkError(response);
 }
 
 function checkError({ data, error }) {
-    return error ? console.error(error) : data;
+  // eslint-disable-next-line no-console
+  return error ? console.error(error) : data;
 }
