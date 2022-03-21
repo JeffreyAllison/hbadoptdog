@@ -67,7 +67,7 @@
     "comma-spacing": "error",
     "space-before-function-paren": [
       "error",
-      "never"
+      "ignore"
     ],
     "keyword-spacing": [
       "error",
