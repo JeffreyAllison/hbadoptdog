@@ -67,7 +67,11 @@
     "comma-spacing": "error",
     "space-before-function-paren": [
       "error",
-      "ignore"
+      {
+        "anonymous": "always",
+        "named": "never",
+        "asyncArrow": "always"
+      }
     ],
     "keyword-spacing": [
       "error",
