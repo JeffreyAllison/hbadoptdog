@@ -26,5 +26,6 @@ export async function getDog(id) {
 }
 
 function checkError({ data, error }) {
+  // eslint-disable-next-line no-console
   return error ? console.error(error) : data;
 }
